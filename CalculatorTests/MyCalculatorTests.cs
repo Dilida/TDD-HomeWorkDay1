@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,26 +14,36 @@ namespace Calculator.Tests
     {
 
         [TestMethod()]
-        public void AddTest_arrayList()
+        public void AddTest_arrayList3()
         {
             //arrange
             var target = new MyCalculator(); //傳進欄位名稱及筆數
-            var columValue1 = "Cost";
-            var numberValue1 = 3;
-            var columValue2 = "Revenue";
-            var numberValue2 = 4;
+            var columValue = "Cost";
+            var numberValue = 3;
             List<Products> Shop = GetProductsList();
 
-            var expected1 = new int[] { 6, 15, 24, 21 };
-            var expected2 = new int[] { 50, 66, 60 };
+            var expected = new int[] { 6, 15, 24, 21 };
 
             //act
-            var actual1 = target.HomeWorkSum(columValue1, numberValue1, Shop);
-            var actual2 = target.HomeWorkSum(columValue2, numberValue2, Shop);
+            var actual = target.HomeWorkSum(columValue, numberValue, Shop);
 
             //assert
-            CollectionAssert.AreEqual(expected1, actual1);
-            CollectionAssert.AreEqual(expected2, actual2);
+            CollectionAssert.AreEqual(expected, actual);
+
+        }
+        public void AddTest_arrayList4(){
+            var target = new MyCalculator(); //傳進欄位名稱及筆數
+            var columValue = "Revenue";
+            var numberValue = 4;
+            List<Products> Shop = GetProductsList();
+
+            var expected = new int[] { 50, 66, 60 };
+
+            //act
+            var actual = target.HomeWorkSum(columValue, numberValue, Shop);
+
+            //assert
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         private static List<Products> GetProductsList()
